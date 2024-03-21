@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videojuegos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>La lista de Schindler pero al reves </h1>
+    
+    
+    
+    <a href="/agregar" class="btn">Agregar esclavos </a>
+
+    <%for(i=0; i < resp.length; i++ ){%>
+    
+    <div class="game">
+        <div class="options">
+            <a href="/editar/<%=resp[i].id_vd%>"">
+                <button class="edit-btn">Editar</button>
+            </a>
+            <a href="/eliminarDB/<%=resp[i].id_vd%>">
+                <button class="delete-btn">Eliminar</button>
+            </a>
+        </div>
+        <h2><%= resp[i].nom_vd%></h2>
+        <h3>Descripción del Esclavo<h3>
+        <p><%= resp[i].des_vd%></p>
+    
+    </div>
+    <%}%>
+
+</body>
+</html>
