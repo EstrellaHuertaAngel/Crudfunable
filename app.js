@@ -80,7 +80,7 @@ app.use(function(req, res, next) {
 
 /* GET home page. */
 app.get('/', function(req, res, next) {
-  conexion.query('SELECT * FROM mybase.Ismybase;',(err,respuesta)=>{
+  conexion.query('SELECT * FROM Ismybase;',(err,respuesta)=>{
     if(err)throw err;
     res.render('index', {resp: respuesta});
   })
