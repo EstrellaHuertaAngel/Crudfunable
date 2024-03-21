@@ -80,7 +80,7 @@ app.use(function(req, res, next) {
 
 /* GET home page. */
 app.get('/', function(req, res, next) {
-  conexion.query('SELECT * FROM Ismybase;',(err,respuesta)=>{
+  conexion.query('SELECT * FROM usuario;',(err,respuesta)=>{
     if(err)throw err;
     res.render('index', {resp: respuesta});
   })
@@ -95,7 +95,7 @@ app.post('/agregarDB', upload.single('image'), async (req, res) => {
   var nombre = req.body.name;
   var descripcion = req.body.description;
 
-  conexion.query('INSERT INTO Ismybase (nom_vd, des_vd) VALUES ("'+ nombre +'","'+ descripcion +'");', (err, resp) => {
+  conexion.query('INSERT INTO usuario (nom_vd, des_vd) VALUES ("'+ nombre +'","'+ descripcion +'");', (err, resp) => {
     if (err) throw err;
   });
 
@@ -104,7 +104,7 @@ app.post('/agregarDB', upload.single('image'), async (req, res) => {
 
 app.get('/eliminarDB/:id', (req, res) => {
   var id = req.params.id;
-  conexion.query('DELETE FROM Ismybase WHERE (id_vd =' + id + ');', (err, resp) => {
+  conexion.query('DELETE FROM usuario WHERE (id_vd =' + id + ');', (err, resp) => {
     if (err) throw err;
   });
   res.redirect('/');
@@ -115,7 +115,7 @@ app.post('/editarDB', upload.single('image'), async (req, res) => {
   var nombre = req.body.name;
   var descripcion = req.body.description;
   
-  conexion.query('UPDATE Ismybase SET nom_vd = "'+ nombre +'", des_vd = "'+ descripcion +'" WHERE (id_vd = "'+ id +'");', (err, resp) => {
+  conexion.query('UPDATE usuario SET nom_vd = "'+ nombre +'", des_vd = "'+ descripcion +'" WHERE (id_vd = "'+ id +'");', (err, resp) => {
     if (err) throw err;
     res.redirect('/');
   });
@@ -123,7 +123,7 @@ app.post('/editarDB', upload.single('image'), async (req, res) => {
 
 app.get('/editar/:id', (req, res) => {
   var id = req.params.id;
-  conexion.query('SELECT * FROM Ismybase WHERE (id_vd = "' + id + '")', (err, resp) => {
+  conexion.query('SELECT * FROM usuario WHERE (id_vd = "' + id + '")', (err, resp) => {
     if (err) throw err;
     console.log(resp[0].nom_vd);
     res.render('veditar', { resp: resp });
