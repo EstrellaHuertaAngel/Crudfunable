@@ -57,12 +57,12 @@ const drive = google.drive({
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////Configuracion de la coneccion de la base de datos//////////////////
-
 var conexion = mysql2.createConnection({
-  host: 'awsbases.cxwo0ysuswzn.us-east-1.rds.amazonaws.com',
-  database: 'Ismybase',
-  user: 'admin',
-  password:'XDictamens'
+  host: 'mybase.mysql.database.azure.com',
+  database: 'mybase',
+  user: 'Novato',
+  password:'Rizzo64$'
+ 
 });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
